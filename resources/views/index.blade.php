@@ -97,13 +97,14 @@
           <div class="space-x-1 d-flex align-items-center space-x-2">
             <!-- Logo -->
             <a class="link-fx fw-bold" href="index.html">
-              <i class="fa fa-fire text-primary"></i>
-              <span class="fs-4 text-dual">code</span><span class="fs-4 text-primary">base</span>
+              {{-- <i class="fa fa-fire text-primary"></i>
+              <span class="fs-4 text-dual">code</span><span class="fs-4 text-primary">base</span> --}}
+              <img src="assets/local_image/MASA_logo.png" width="190vw" alt="">
             </a>
             <!-- END Logo -->
 
             <!-- Version -->
-            <span class="d-inline-block fs-xs fw-medium bg-primary-dark text-white rounded-pill py-1 px-2">5.7</span>
+            {{-- <span class="d-inline-block fs-xs fw-medium bg-primary-dark text-white rounded-pill py-1 px-2">5.7</span> --}}
             <!-- END Version -->
           </div>
           <!-- END Left Section -->
