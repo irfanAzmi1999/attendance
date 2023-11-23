@@ -45,16 +45,17 @@
 <!-- Login Wrapper Area -->
 <div class="login-wrapper d-flex align-items-center justify-content-center">
     <div class="custom-container">
-        <div class="text-center px-4"><img class="login-intro-img" src="img/bg-img/36.png" alt=""></div>
+        <div class="text-center px-4"><img class="login-intro-img" src="assets/localimage/MANTA_high_logo.png" alt=""></div>
         <!-- Register Form -->
         <div class="register-form mt-4">
             <h6 class="mb-3 text-center">Log in to continue to Mantasoft Attendance.</h6>
-            <form action="page-home.html">
+            <form action="{{route('login')}}" method="POST">
+                @csrf
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Username">
+                    <input class="form-control" type="text" name="username" placeholder="Username">
                 </div>
                 <div class="form-group position-relative">
-                    <input class="form-control" id="psw-input" type="password" placeholder="Enter Password">
+                    <input class="form-control" id="psw-input" name="password" type="password" placeholder="Enter Password">
                     <div class="position-absolute" id="password-visibility"><i class="bi bi-eye"></i><i class="bi bi-eye-slash"></i></div>
                 </div>
                 <button class="btn btn-primary w-100" type="submit">Sign In</button>
