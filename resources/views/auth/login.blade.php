@@ -75,16 +75,16 @@
                         <form class="js-validation-signin px-4" action="{{route('login')}}" method="POST">
                             @csrf
                             <div class="form-floating mb-4">
-                                <input type="text" class="form-control" id="login-username" name="email" placeholder="Enter your username">
-                                <label class="form-label" for="login-username">Email</label>
-                                @error('email')
+                                <input type="text" class="form-control" id="login-username" name="username" placeholder="Enter your username" autocomplete="off">
+                                <label class="form-label" for="login-username">Username</label>
+                                @error('username')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                             <div class="form-floating mb-4">
-                                <input type="password" class="form-control" id="login-password" name="password" placeholder="Enter your password">
+                                <input type="password" class="form-control" id="login-password" name="password" placeholder="Enter your password" autocomplete="off">
                                 <label class="form-label" for="login-password">Password</label>
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -93,19 +93,16 @@
                                 @enderror
                             </div>
                             <div class="mb-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="login-remember-me" name="login-remember-me" checked>
-                                    <label class="form-check-label" for="login-remember-me">Remember Me</label>
-                                </div>
+{{--                                <div class="form-check">--}}
+{{--                                    <input class="form-check-input" type="checkbox" value="" id="login-remember-me" name="login-remember-me" checked>--}}
+{{--                                    <label class="form-check-label" for="login-remember-me">Remember Me</label>--}}
+{{--                                </div>--}}
                             </div>
                             <div class="mb-4">
                                 <input type="submit" class="btn btn-lg btn-alt-primary fw-semibold" value="submit">
 
-
                                 <div class="mt-4">
-                                    <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_signup2.html">
-                                        Create Account
-                                    </a>
+
                                     <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_reminder2.html">
                                         Forgot Password
                                     </a>
