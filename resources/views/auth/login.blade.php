@@ -1,140 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Affan - PWA Mobile HTML Template">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#0134d4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
     @include('layouts.header1')
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <!-- Favicon -->
 
-    <meta name="description" content="Codebase - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave">
-    <meta name="author" content="pixelcave">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph Meta -->
-    {{--    <meta property="og:title" content="Codebase - Bootstrap 5 Admin Template &amp; UI Framework">--}}
-    {{--    <meta property="og:site_name" content="Codebase">--}}
-    {{--    <meta property="og:description" content="Codebase - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave">--}}
-    {{--    <meta property="og:type" content="website">--}}
-    {{--    <meta property="og:url" content="">--}}
-    {{--    <meta property="og:image" content="">--}}
-
-<!-- Icons -->
-    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    {{--    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">--}}
-    {{--    <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">--}}
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
-    <!-- END Icons -->
-
-    <!-- Stylesheets -->
-
-    <!-- Codebase framework -->
-    <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
-
-    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-    <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
-    <!-- END Stylesheets -->
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/dist/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/dist/css/tiny-slider.css">
+    <link rel="stylesheet" href="assets/dist/css/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/dist/css/rangeslider.css">
+    <link rel="stylesheet" href="assets/dist/css/vanilla-dataTables.min.css">
+    <link rel="stylesheet" href="assets/dist/css/apexcharts.css">
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="assets/dist/style.css">
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="assets/dist/manifest.json">
 </head>
-
 <body>
-
-<div id="page-container" class="main-content-boxed">
-
-    <!-- Main Container -->
-    <main id="main-container">
-
-        <!-- Page Content -->
-        <div class="bg-image" style="background-image: url('assets/media/photos/photo34@2x.jpg');">
-            <div class="row mx-0 bg-black-50">
-                <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
-                    <div class="p-4">
-                        <p class="fs-3 fw-semibold text-white">
-                            Get Inspired and Create.
-                        </p>
-                        <p class="text-white-75 fw-medium">
-                            Copyright &copy; <span data-toggle="year-copy"></span>
-                        </p>
-                    </div>
-                </div>
-                <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-body-extra-light">
-                    <div class="content content-full">
-                        <!-- Header -->
-                        <div class="px-4 py-2 mb-4">
-                            <a class="link-fx fw-bold" href="{{url('/')}}">
-                                {{--                                <i class="fa fa-fire"></i>--}}
-                                {{--                                <span class="fs-4 text-body-color">code</span><span class="fs-4">base</span>--}}
-                                <img src="{{url('assets/local_image/MANTA_high_logo.png')}}" width="100wh" alt="">
-                            </a>
-                            <h1 class="h3 fw-bold mt-4 mb-2">Welcome to Mantasoft Attendance System</h1>
-                            <h2 class="h5 fw-medium text-muted mb-0">Please log in</h2>
-                        </div>
-                        <!-- END Header -->
-
-                        <!-- Sign In Form -->
-                        <!-- jQuery Validation functionality is initialized with .js-validation-signin class in js/pages/op_auth_signin.min.js which was auto compiled from _js/pages/op_auth_signin.js -->
-                        <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                        <form class="js-validation-signin px-4" action="{{route('login')}}" method="POST">
-                            @csrf
-                            <div class="form-floating mb-4">
-                                <input type="text" class="form-control" id="login-username" name="username" placeholder="Enter your username" autocomplete="off">
-                                <label class="form-label" for="login-username">Username</label>
-                                @error('username')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-floating mb-4">
-                                <input type="password" class="form-control" id="login-password" name="password" placeholder="Enter your password" autocomplete="off">
-                                <label class="form-label" for="login-password">Password</label>
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="mb-4">
-{{--                                <div class="form-check">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="login-remember-me" name="login-remember-me" checked>--}}
-{{--                                    <label class="form-check-label" for="login-remember-me">Remember Me</label>--}}
-{{--                                </div>--}}
-                            </div>
-                            <div class="mb-4">
-                                <input type="submit" class="btn btn-lg btn-alt-primary fw-semibold" value="submit">
-
-                                <div class="mt-4">
-
-                                    <a class="fs-sm fw-medium link-fx text-muted me-2 mb-1 d-inline-block" href="op_auth_reminder2.html">
-                                        Forgot Password
-                                    </a>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- END Sign In Form -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END Page Content -->
-    </main>
-    <!-- END Main Container -->
+<!-- Preloader -->
+<div id="preloader">
+    <div class="spinner-grow text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
 </div>
-<!-- END Page Container -->
-
-<!--
-    Codebase JS
-
-    Core libraries and functionality
-    webpack is putting everything together at assets/_js/main/app.js
--->
-<script src="assets/js/codebase.app.min.js"></script>
-
-<!-- jQuery (required for jQuery Validation plugins) -->
-<script src="assets/js/lib/jquery.min.js"></script>
-
-<!-- Page JS Plugins -->
-<script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
-
-<!-- Page JS Code -->
-<script src="assets/js/pages/op_auth_signin.min.js"></script>
+<!-- Internet Connection Status -->
+<!-- # This code for showing internet connection status -->
+<div class="internet-connection-status" id="internetStatus"></div>
+<!-- Back Button -->
+<div class="login-back-button"><a href="{{url('/')}}">
+        <svg class="bi bi-arrow-left-short" width="32" height="32" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"></path>
+        </svg></a></div>
+<!-- Login Wrapper Area -->
+<div class="login-wrapper d-flex align-items-center justify-content-center">
+    <div class="custom-container">
+        <div class="text-center px-4"><img class="login-intro-img" src="img/bg-img/36.png" alt=""></div>
+        <!-- Register Form -->
+        <div class="register-form mt-4">
+            <h6 class="mb-3 text-center">Log in to continue to Mantasoft Attendance.</h6>
+            <form action="page-home.html">
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Username">
+                </div>
+                <div class="form-group position-relative">
+                    <input class="form-control" id="psw-input" type="password" placeholder="Enter Password">
+                    <div class="position-absolute" id="password-visibility"><i class="bi bi-eye"></i><i class="bi bi-eye-slash"></i></div>
+                </div>
+                <button class="btn btn-primary w-100" type="submit">Sign In</button>
+            </form>
+        </div>
+        <!-- Login Meta -->
+        <div class="login-meta-data text-center"><a class="stretched-link forgot-password d-block mt-3 mb-1" href="page-forget-password.html">Forgot Password?</a>
+            <p class="mb-0">Didn't have an account? <a class="stretched-link" href="page-register.html">Register Now</a></p>
+        </div>
+    </div>
+</div>
+<!-- All JavaScript Files -->
+<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/dist/js/slideToggle.min.js"></script>
+<script src="assets/dist/js/internet-status.js"></script>
+<script src="assets/dist/js/tiny-slider.js"></script>
+<script src="assets/dist/js/baguetteBox.min.js"></script>
+<script src="assets/dist/js/countdown.js"></script>
+<script src="assets/dist/js/rangeslider.min.js"></script>
+<script src="assets/dist/js/vanilla-dataTables.min.js"></script>
+<script src="assets/dist/js/index.js"></script>
+<script src="assets/dist/js/magic-grid.min.js"></script>
+<script src="assets/dist/js/dark-rtl.js"></script>
+<script src="assets/dist/js/active.js"></script>
+<!-- PWA -->
+<script src="assets/dist/js/pwa.js"></script>
 </body>
 </html>
