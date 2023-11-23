@@ -20,9 +20,7 @@
 
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+  @include('layouts.header1')
     <!-- END Icons -->
 
     <!-- Stylesheets -->
@@ -96,7 +94,7 @@
           <!-- Left Section -->
           <div class="space-x-1 d-flex align-items-center space-x-2">
             <!-- Logo -->
-            <a class="link-fx fw-bold" href="index.html">
+            <a class="link-fx fw-bold" href="{{ url('/') }}">
               {{-- <i class="fa fa-fire text-primary"></i>
               <span class="fs-4 text-dual">code</span><span class="fs-4 text-primary">base</span> --}}
               <img src="assets/local_image/MASA_logo.png" width="190vw" alt="">
@@ -146,7 +144,7 @@
             <div class="content content-full">
               <div class="row g-6 w-100 py-7 overflow-hidden">
                 <div class="col-md-6 order-md-last py-4 px-0 d-md-flex align-items-md-center justify-content-md-end">
-                  <img class="img-fluid" src="assets/media/various/landing-promo-hero.png" alt="Hero Promo">
+{{--                  <img class="img-fluid" src="assets/media/various/landing-promo-hero.png" alt="Hero Promo">--}}
                 </div>
                 <div class="col-md-6 py-4 d-flex align-items-center">
                   <div class="text-center text-md-start">
@@ -157,7 +155,7 @@
                       {{-- Codebase is a super flexible solution built with <span class="fw-semibold">Bootstrap 5</span>. Use it to save time and create all kinds of web applications with friendly and modern UI. <span class="fw-semibold">No jQuery</span> in core. Now with a brand new <a class="fw-semibold" href="javascript:void(0)" data-toggle="layout" data-action="dark_mode_toggle">dark mode</a>. --}}
                     Attendance system to recoord employee attendance with location.
                     </p>
-                    <a class="btn btn-primary py-3 px-5" href="be_pages_dashboard.html" target="_blank">
+                    <a class="btn btn-primary py-3 px-5" href="{{url('login')}}">
                       Login
                       <i class="fa fa-arrow-right opacity-50 ms-1"></i>
                     </a>
