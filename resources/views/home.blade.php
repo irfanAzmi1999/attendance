@@ -1,29 +1,4 @@
-{{--@extends('layouts.app')--}}
-
-{{--@section('content')--}}
-{{--<div class="container">--}}
-{{--    <div class="row justify-content-center">--}}
-{{--        <div class="col-md-8">--}}
-{{--            <div class="card">--}}
-{{--                <div class="card-header">{{ __('Dashboard') }}</div>--}}
-
-{{--                <div class="card-body">--}}
-{{--                    @if (session('status'))--}}
-{{--                        <div class="alert alert-success" role="alert">--}}
-{{--                            {{ session('status') }}--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
-
-{{--                    {{ __('You are logged in!') }}--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--@endsection--}}
-
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -33,19 +8,8 @@
     <meta name="theme-color" content="#0134d4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <!-- Title -->
-{{--    <title>Affan - PWA Mobile HTML Template</title>--}}
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
-    <!-- Favicon -->
-{{--    <link rel="icon" href="img/core-img/favicon.ico">--}}
-{{--    <link rel="apple-touch-icon" href="img/icons/icon-96x96.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="152x152" href="img/icons/icon-152x152.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="167x167" href="img/icons/icon-167x167.png">--}}
-{{--    <link rel="apple-touch-icon" sizes="180x180" href="img/icons/icon-180x180.png">--}}
-    <!-- CSS Libraries -->
     <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/dist/css/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/dist/css/tiny-slider.css">
@@ -57,6 +21,20 @@
     <link rel="stylesheet" href="assets/dist/style.css">
     <!-- Web App Manifest -->
     <link rel="manifest" href="assets/dist/manifest.json">
+    <style>
+        .clock {
+            /*position: absolute;*/
+            /*top: 50%;*/
+            /*left: 50%;*/
+            /*transform: translateX(-50%) translateY(-50%);*/
+            color: black ;
+            font-size:30px;
+            text-align: center;
+            /*letter-spacing: 7px;*/
+
+        }
+    </style>
+
 </head>
 <body>
 <!-- Preloader -->
@@ -149,7 +127,7 @@
                     </svg></a></div>
             <!-- Page Title -->
             <div class="page-heading">
-                <h6 class="mb-0">Tabs</h6>
+                <h6 class="mb-0">Attendance</h6>
             </div>
             <!-- Settings -->
             <div class="setting-wrapper">
@@ -195,145 +173,55 @@
                     <div class="tab-content rounded-lg p-3 shadow-sm" id="affanTabs1Content">
                         <div class="tab-pane fade show active" id="bootstrap" role="tabpanel" aria-labelledby="bootstrap-tab">
                             <h6>Clock in </h6>
-                            <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+{{--                            <p class="mb-0"></p>--}}
+                            <div id="MyClockDisplay" class="clock" onload="showTime()">
+
+                            </div>
+                           <div style="text-align: right">
+                               {{  \Carbon\Carbon::now()->format('d F Y') }}
+                           </div>
                             <br>
                             <p>
                                 <button class="btn btn-primary">Clock In</button>
                             </p>
                         </div>
+
+                        {{--        ---------------------------------                --}}
                         <div class="tab-pane fade" id="pwa" role="tabpanel" aria-labelledby="pwa-tab">
-                            <h6>PWA Ready</h6>
-                            <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <h6>Today Attendance History</h6>
+                                        <div class="card-body" style="padding:0">
+                                            <table class="table mb-0">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">Time</th>
+                                                    <th scope="col">Location</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <th>Example</th>
+                                                    <td>Link google map</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
                         </div>
-                        <div class="tab-pane fade" id="dark" role="tabpanel" aria-labelledby="dark-tab">
-                            <h6>Dark Mode</h6>
-                            <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
+
+
+
+{{--                        <div class="tab-pane fade" id="dark" role="tabpanel" aria-labelledby="dark-tab">--}}
+{{--                            <h6>Dark Mode</h6>--}}
+{{--                            <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-{{--    <div class="container">--}}
-{{--        <div class="element-heading mt-3">--}}
-{{--            <h6>Colorful Tab</h6>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="container">--}}
-{{--        <div class="card bg-primary bg-gradient">--}}
-{{--            <div class="card-body">--}}
-{{--                <div class="colorful-tab">--}}
-{{--                    <ul class="nav p-1 mb-3 shadow-sm" id="affanTab3" role="tablist">--}}
-{{--                        <li class="nav-item" role="presentation">--}}
-{{--                            <button class="btn btn-primary active" id="creative-tab" data-bs-toggle="tab" data-bs-target="#creative" type="button" role="tab" aria-controls="creative" aria-selected="true">Creative</button>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item" role="presentation">--}}
-{{--                            <button class="btn btn-primary" id="modern-tab" data-bs-toggle="tab" data-bs-target="#modern" type="button" role="tab" aria-controls="modern" aria-selected="false">Modern</button>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item" role="presentation">--}}
-{{--                            <button class="btn btn-primary" id="latest-tab" data-bs-toggle="tab" data-bs-target="#latest" type="button" role="tab" aria-controls="latest" aria-selected="false">Latest</button>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                    <div class="tab-content shadow-sm p-3" id="affanTab3Content">--}}
-{{--                        <div class="tab-pane fade show active" id="creative" role="tabpanel" aria-labelledby="creative-tab">--}}
-{{--                            <h6 class="text-white">Creative design.</h6>--}}
-{{--                            <p class="mb-0 text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>--}}
-{{--                        </div>--}}
-{{--                        <div class="tab-pane fade" id="modern" role="tabpanel" aria-labelledby="modern-tab">--}}
-{{--                            <h6 class="text-white">Modern trends.</h6>--}}
-{{--                            <p class="mb-0 text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>--}}
-{{--                        </div>--}}
-{{--                        <div class="tab-pane fade" id="latest" role="tabpanel" aria-labelledby="latest-tab">--}}
-{{--                            <h6 class="text-white">Latest technology.</h6>--}}
-{{--                            <p class="mb-0 text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="container">--}}
-{{--        <div class="element-heading mt-3">--}}
-{{--            <h6>Minimal Tab</h6>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="container">--}}
-{{--        <div class="card">--}}
-{{--            <div class="card-body">--}}
-{{--                <div class="minimal-tab">--}}
-{{--                    <ul class="nav nav-tabs mb-3" id="affanTab2" role="tablist">--}}
-{{--                        <li class="nav-item" role="presentation">--}}
-{{--                            <button class="btn active" id="sass-tab" data-bs-toggle="tab" data-bs-target="#sass" type="button" role="tab" aria-controls="sass" aria-selected="true">Sass</button>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item" role="presentation">--}}
-{{--                            <button class="btn" id="npm-tab" data-bs-toggle="tab" data-bs-target="#npm" type="button" role="tab" aria-controls="npm" aria-selected="false">NPM</button>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item" role="presentation">--}}
-{{--                            <button class="btn" id="gulp-tab" data-bs-toggle="tab" data-bs-target="#gulp" type="button" role="tab" aria-controls="gulp" aria-selected="false">Gulp</button>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item" role="presentation">--}}
-{{--                            <button class="btn" id="pug-tab" data-bs-toggle="tab" data-bs-target="#pug" type="button" role="tab" aria-controls="pug" aria-selected="false">Pug</button>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                    <div class="tab-content rounded-lg p-3" id="affanTab2Content">--}}
-{{--                        <div class="tab-pane fade show active" id="sass" role="tabpanel" aria-labelledby="sass-tab">--}}
-{{--                            <h6>Built with SASS</h6>--}}
-{{--                            <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>--}}
-{{--                        </div>--}}
-{{--                        <div class="tab-pane fade" id="npm" role="tabpanel" aria-labelledby="npm-tab">--}}
-{{--                            <h6>Built with NPM</h6>--}}
-{{--                            <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>--}}
-{{--                        </div>--}}
-{{--                        <div class="tab-pane fade" id="gulp" role="tabpanel" aria-labelledby="gulp-tab">--}}
-{{--                            <h6>Built with Gulp js</h6>--}}
-{{--                            <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>--}}
-{{--                        </div>--}}
-{{--                        <div class="tab-pane fade" id="pug" role="tabpanel" aria-labelledby="pug-tab">--}}
-{{--                            <h6>Built with Pug</h6>--}}
-{{--                            <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="container">--}}
-{{--        <div class="element-heading mt-3">--}}
-{{--            <h6>Bootstrap Tab</h6>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="container">--}}
-{{--        <div class="card">--}}
-{{--            <div class="card-body">--}}
-{{--                <ul class="nav nav-tabs" id="bootstrapTab" role="tablist">--}}
-{{--                    <li class="nav-item me-2" role="presentation">--}}
-{{--                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item me-2" role="presentation">--}}
-{{--                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item" role="presentation">--}}
-{{--                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--                <div class="tab-content p-3 border-top-0" id="bootstrapTabContent">--}}
-{{--                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">--}}
-{{--                        <h6>I'm tab one!</h6>--}}
-{{--                        <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, impedit natus itaque fuga aperiam qui eos ut.</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">--}}
-{{--                        <h6>I'm tab two!</h6>--}}
-{{--                        <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, impedit natus itaque fuga aperiam qui eos ut.</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">--}}
-{{--                        <h6>I'm tab three!</h6>--}}
-{{--                        <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, impedit natus itaque fuga aperiam qui eos ut.</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 </div>
+
+
 <!-- Footer Nav -->
 <div class="footer-nav-area" id="footerNav">
     <div class="container px-0">
@@ -398,5 +286,37 @@
 <script src="assets/dist/js/active.js"></script>
 <!-- PWA -->
 <script src="assets/dist/js/pwa.js"></script>
+<script>
+    function showTime(){
+        var date = new Date();
+        var h = date.getHours(); // 0 - 23
+        var m = date.getMinutes(); // 0 - 59
+        var s = date.getSeconds(); // 0 - 59
+        var session = "AM";
+
+        if(h == 0){
+            h = 12;
+        }
+
+        if(h > 12){
+            h = h - 12;
+            session = "PM";
+        }
+
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+
+        var time = h + ":" + m + ":" + s + " " + session;
+        document.getElementById("MyClockDisplay").innerText = time;
+        document.getElementById("MyClockDisplay").textContent = time;
+
+        setTimeout(showTime, 1000);
+
+    }
+
+    showTime();
+
+</script>
 </body>
 </html>
