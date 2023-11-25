@@ -24,12 +24,22 @@ class attendanceController extends Controller
         return redirect()->route('home');
     }
 
-//    public function getTodayHistory()
-//    {
-//        $cDate = Carbon::now()->format('Y-m-d');
-//        $attendance = attendance::where('dateRecord','=',$cDate);
-//
-//        return view('home',['data'=>$attendance]);
-//    }
+    public function checkCurrentDay()
+    {
+        $today = Carbon::now()->toDateString();
+        $userID = Auth::user()->id;
+        $attendance = attendance::where('staff_id','=',$userID)->where('dateRecord','=',$today)->get();
+
+//        dd($attendance);
+
+        if ($attendance->isEmpty())
+        {
+            return 'empty';
+        }
+        else{
+            return 'exist';
+        }
+    }
+
 
 }

@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         $cDate = Carbon::now()->format('Y-m-d');
         $attendance = attendance::where('dateRecord','=',$cDate)->get();
-        return view('home',['data'=>$attendance]);
+        $status = app('App\Http\Controllers\attendanceController')->checkCurrentDay();
+        return view('home',['data'=>$attendance,'daystatus'=>$status]);
     }
 }

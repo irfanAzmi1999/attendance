@@ -144,26 +144,28 @@
         <!-- User Meta Data-->
         <div class="card user-data-card">
             <div class="card-body">
-                <form action="#">
+                <form action="{{route('updateProfile',['id'=>Auth::user()->id])}}" method="POST">
+                    @method('PATCH')
+                    @csrf
                     <div class="form-group mb-3">
                         <label class="form-label" for="Username">Username</label>
-                        <input class="form-control" id="Username" type="text" value="{{Auth::user()->username}}" placeholder="Username">
+                        <input class="form-control" name="Username" type="text" value="{{Auth::user()->username}}" placeholder="Username">
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label" for="fullname">Full Name</label>
-                        <input class="form-control" id="fullname" type="text" value="{{Auth::user()->name}}" placeholder="Full Name" readonly>
+                        <input class="form-control" name="fullname" type="text" value="{{Auth::user()->name}}" placeholder="Full Name" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label" for="shortname">Short Name</label>
-                        <input class="form-control" id="shortname" type="text" value="{{Auth::user()->shortname}}" placeholder="Shortname" readonly>
+                        <input class="form-control" name="shortname" type="text" value="{{Auth::user()->shortname}}" placeholder="Shortname" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label" for="email">Email Address</label>
-                        <input class="form-control" id="email" type="text" value="{{Auth::user()->email}}" placeholder="Email Address" readonly>
+                        <input class="form-control" name="email" type="text" value="{{Auth::user()->email}}" placeholder="Email Address" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label" for="department">Department</label>
-                        <input class="form-control" id="department" type="text" value="{{Auth::user()->department}}" placeholder="Department">
+                        <input class="form-control" name="department" type="text" value="{{Auth::user()->department}}" placeholder="Department">
                     </div>
 
                     <button class="btn btn-success w-100" type="submit">Update Now</button>

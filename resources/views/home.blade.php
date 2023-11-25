@@ -226,7 +226,13 @@
                            </div>
                             <br>
                             <p>
-                                <input type="submit" value="Clock In" class="btn btn-primary">
+                                    @if($daystatus == 'empty')
+                                        <input type="submit" value="Clock In" class="btn btn-primary">
+                                    @endif
+
+                                    @if($daystatus == 'exist')
+                                        <input type="submit" value="Update" class="btn btn-primary">
+                                    @endif
                             </p>
 
                             </form>
