@@ -17,7 +17,7 @@ class userController extends Controller
         $user->department = $request->input('department');
         $user->save();
 
-        echo 'Sucess';
+        return redirect()->route('home');
 
     }
 

@@ -153,15 +153,15 @@
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label" for="fullname">Full Name</label>
-                        <input class="form-control" name="fullname" type="text" value="{{Auth::user()->name}}" placeholder="Full Name" readonly>
+                        <input class="form-control" name="fullname" type="text" value="{{Auth::user()->name}}" placeholder="Full Name" >
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label" for="shortname">Short Name</label>
-                        <input class="form-control" name="shortname" type="text" value="{{Auth::user()->shortname}}" placeholder="Shortname" readonly>
+                        <input class="form-control" name="shortname" type="text" value="{{Auth::user()->shortname}}" placeholder="Shortname" >
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label" for="email">Email Address</label>
-                        <input class="form-control" name="email" type="text" value="{{Auth::user()->email}}" placeholder="Email Address" readonly>
+                        <input class="form-control" name="email" type="text" value="{{Auth::user()->email}}" placeholder="Email Address" >
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label" for="department">Department</label>
