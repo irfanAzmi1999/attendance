@@ -8,10 +8,17 @@
     <meta name="theme-color" content="#0134d4">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <!-- Favicon -->
+
+    <!-- CSS Libraries -->
     <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/dist/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/dist/assetcss/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/dist/css/tiny-slider.css">
     <link rel="stylesheet" href="assets/dist/css/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/dist/css/rangeslider.css">
@@ -20,23 +27,9 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="assets/dist/style.css">
     <!-- Web App Manifest -->
-    <link rel="manifest" href="assets/dist/manifest.json">
-    <style>
-        .clock {
-            /*position: absolute;*/
-            /*top: 50%;*/
-            /*left: 50%;*/
-            /*transform: translateX(-50%) translateY(-50%);*/
-            color: black ;
-            font-size:30px;
-            text-align: center;
-            /*letter-spacing: 7px;*/
-
-        }
-    </style>
-
+    <link rel="manifest" href=assets/dist/manifest.json">
 </head>
-<body onload="getLocation()">
+<body>
 <!-- Preloader -->
 <div id="preloader">
     <div class="spinner-grow text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
@@ -44,59 +37,20 @@
 <!-- Internet Connection Status -->
 <!-- # This code for showing internet connection status -->
 <div class="internet-connection-status" id="internetStatus"></div>
-
-{{--Modal--}}
-<div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-md-down">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="fullscreenModalLabel">Modal Heading</h6>
-                <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore excepturi magnam odio commodi. Quaerat, eaque. Neque eius, accusamus atque, asperiores iure dolor quibusdam eum pariatur libero eaque voluptate magnam? Ratione, dignissimos! Doloremque soluta totam libero recusandae qui nemo eius exercitationem quisquam. Voluptas.</p>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam quasi illum eveniet quidem dolores consectetur tempore architecto quo quos, repudiandae porro quisquam esse sit pariatur nemo blanditiis expedita minus qui?                        </p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-sm btn-success" type="button">Save</button>
-            </div>
+<!-- Header Area -->
+<div class="header-area" id="headerArea">
+    <div class="container">
+        <!-- # Paste your Header Content from here -->
+        <!-- # Header Five Layout -->
+        <!-- # Copy the code from here ... -->
+        <!-- Header Content -->
+        <div class="header-content header-style-five position-relative d-flex align-items-center justify-content-between">
+            <!-- Logo Wrapper -->
+            <div class="logo-wrapper"><a href="page-home.html"><img src="img/core-img/logo.png" alt=""></a></div>
+            <!-- Navbar Toggler -->
+            <div class="navbar--toggler" id="affanNavbarToggler" data-bs-toggle="offcanvas" data-bs-target="#affanOffcanvas" aria-controls="affanOffcanvas"><span class="d-block"></span><span class="d-block"></span><span class="d-block"></span></div>
         </div>
-    </div>
-</div>
-
-<!-- Dark mode switching -->
-<div class="dark-mode-switching">
-    <div class="d-flex w-100 h-100 align-items-center justify-content-center">
-        <div class="dark-mode-text text-center">
-            <svg class="bi bi-moon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M14.53 10.53a7 7 0 0 1-9.058-9.058A7.003 7.003 0 0 0 8 15a7.002 7.002 0 0 0 6.53-4.47z"></path>
-            </svg>
-            <p class="mb-0">Switching to dark mode</p>
-        </div>
-        <div class="light-mode-text text-center">
-            <svg class="bi bi-brightness-high" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-            </svg>
-            <p class="mb-0">Switching to light mode</p>
-        </div>
-    </div>
-</div>
-<!-- RTL mode switching -->
-<div class="rtl-mode-switching">
-    <div class="d-flex w-100 h-100 align-items-center justify-content-center">
-        <div class="rtl-mode-text text-center">
-            <svg class="bi bi-text-right" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"></path>
-            </svg>
-            <p class="mb-0">Switching to RTL mode</p>
-        </div>
-        <div class="ltr-mode-text text-center">
-            <svg class="bi bi-text-left" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"></path>
-            </svg>
-            <p class="mb-0">Switching to default mode</p>
-        </div>
+        <!-- # Header Five Layout End -->
     </div>
 </div>
 <!-- Setting Popup Overlay -->
@@ -139,11 +93,19 @@
 <!-- Header Area -->
 <div class="header-area" id="headerArea">
     <div class="container">
+        <!-- Header Content -->
         <div class="header-content position-relative d-flex align-items-center justify-content-between">
+            <!-- Back Button -->
+        {{--            <div class="back-button"><a href="elements.html">--}}
+        {{--                    <svg class="bi bi-arrow-left-short" width="32" height="32" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">--}}
+        {{--                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"></path>--}}
+        {{--                    </svg></a></div>--}}
+        <!-- Page Title -->
             <img src="assets/localimage/MANTA_high_logo.png" width="50" alt="">
             <div class="page-heading">
                 <h6 class="mb-0">Attendance</h6>
             </div>
+            <!-- Settings -->
             <div class="setting-wrapper">
                 <div class="setting-trigger-btn" id="settingTriggerBtn">
                     <svg class="bi bi-gear" width="18" height="18" viewBox="0 0 16 16" fill="url(#gradientSettings)" xmlns="http://www.w3.org/2000/svg">
@@ -163,87 +125,53 @@
 </div>
 <div class="page-content-wrapper py-3">
     <div class="container">
-        <!-- Element Heading -->
-        <div class="element-heading">
-            <h6></h6>
-            <h6>Today Attendance </h6>
-        </div>
-    </div>
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <div class="standard-tab">
-                    <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="btn active" id="bootstrap-tab" data-bs-toggle="tab" data-bs-target="#bootstrap" type="button" role="tab" aria-controls="bootstrap" aria-selected="true">Clock In/Update</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="btn" id="pwa-tab" data-bs-toggle="tab" data-bs-target="#pwa" type="button" role="tab" aria-controls="pwa" aria-selected="false">Details</button>
-                        </li>
-{{--                        <li class="nav-item" role="presentation">--}}
-{{--                            <button class="btn" id="dark-tab" data-bs-toggle="tab" data-bs-target="#dark" type="button" role="tab" aria-controls="dark" aria-selected="false">Update List</button>--}}
-{{--                        </li>--}}
-                    </ul>
-                    <div class="tab-content rounded-lg p-3 shadow-sm" id="affanTabs1Content">
-                        <div class="tab-pane fade show active" id="bootstrap" role="tabpanel" aria-labelledby="bootstrap-tab">
-                            <form action="{{route('submitAttendance')}}" method="POST">
-                                @csrf
-                                <input type="text" id="longitude" name="longitude">
-                                <input type="text" id="latitude" name="latitude">
-                                <input type="hidden" id="currentTime" name="currentTime" value="{{Carbon\Carbon::now()}}">
-                            <h6>Clock in </h6>
-{{--                            <p class="mb-0"></p>--}}
-                            <div id="MyClockDisplay" class="clock" onload="showTime()">
-
-                            </div>
-                           <div style="text-align: right">
-                               {{  \Carbon\Carbon::now()->format('d F Y') }}
-                           </div>
-                            <br>
-                            <p>
-                                <input type="submit" value="Clock In" class="btn btn-primary">
-                            </p>
-
-                            </form>
-
-                        </div>
-
-                        {{--        ---------------------------------                --}}
-                        <div class="tab-pane fade" id="pwa" role="tabpanel" aria-labelledby="pwa-tab">
-                            <h6>Today Attendance History</h6>
-                                        <div class="card-body" style="padding:0">
-                                            <table class="table mb-0">
-                                                <thead>
-                                                <tr>
-                                                    <th scope="col">Time</th>
-                                                    <th scope="col">Location</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                @foreach($data as $items=>$item)
-                                                    <tr>
-                                                        <th>{{$item->created_at}}</th>
-                                                        <td>
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Trigger Modal</a>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                        </div>
-{{--                        <div class="tab-pane fade" id="dark" role="tabpanel" aria-labelledby="dark-tab">--}}
-{{--                            <h6>Dark Mode</h6>--}}
-{{--                            <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>--}}
-{{--                        </div>--}}
+        <!-- User Information-->
+        <div class="card user-info-card mb-3">
+            <div class="card-body d-flex align-items-center">
+{{--                <div class="user-profile me-3"><img src="img/bg-img/2.jpg" alt=""><i class="bi bi-pencil"></i>--}}
+{{--                    <form action="#">--}}
+{{--                        <input class="form-control" type="file">--}}
+{{--                    </form>--}}
+{{--                </div>--}}
+                <div class="user-info">
+                    <div class="d-flex align-items-center">
+                        <h5 class="mb-1">{{Auth::user()->name}}</h5>
                     </div>
+                    <p class="mb-0">{{Auth::user()->department}}</p>
                 </div>
+            </div>
+        </div>
+        <!-- User Meta Data-->
+        <div class="card user-data-card">
+            <div class="card-body">
+                <form action="#">
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="Username">Username</label>
+                        <input class="form-control" id="Username" type="text" value="{{Auth::user()->username}}" placeholder="Username">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="fullname">Full Name</label>
+                        <input class="form-control" id="fullname" type="text" value="{{Auth::user()->name}}" placeholder="Full Name" readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="shortname">Short Name</label>
+                        <input class="form-control" id="shortname" type="text" value="{{Auth::user()->shortname}}" placeholder="Shortname" readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input class="form-control" id="email" type="text" value="{{Auth::user()->email}}" placeholder="Email Address" readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="department">Department</label>
+                        <input class="form-control" id="department" type="text" value="{{Auth::user()->department}}" placeholder="Department">
+                    </div>
+
+                    <button class="btn btn-success w-100" type="submit">Update Now</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-
 <!-- Footer Nav -->
 <div class="footer-nav-area" id="footerNav">
     <div class="container px-0">
@@ -290,47 +218,6 @@
 <script src="assets/dist/js/dark-rtl.js"></script>
 <script src="assets/dist/js/active.js"></script>
 <!-- PWA -->
-<script src="assets/dist/js/pwa.js"></script>
-<script>
-    function showTime(){
-        var date = new Date();
-        var h = date.getHours(); // 0 - 23
-        var m = date.getMinutes(); // 0 - 59
-        var s = date.getSeconds(); // 0 - 59
-        var session = "AM";
-        if(h == 0){
-            h = 12;
-        }
-        if(h > 12){
-            h = h - 12;
-            session = "PM";
-        }
-        h = (h < 10) ? "0" + h : h;
-        m = (m < 10) ? "0" + m : m;
-        s = (s < 10) ? "0" + s : s;
-        var time = h + ":" + m + ":" + s + " " + session;
-        document.getElementById("MyClockDisplay").innerText = time;
-        document.getElementById("MyClockDisplay").textContent = time;
-        setTimeout(showTime, 1000);
-    }
-    showTime();
-</script>
-
-<script>
-
-    const longitude = document.getElementById("longitude");
-    const latitude = document.getElementById("latitude");
-
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-
-    function showPosition(position) {
-        latitude.value = position.coords.latitude;
-        longitude.value = position.coords.longitude;
-    }
-</script>
+<script src="js/pwa.js"></script>
 </body>
 </html>
