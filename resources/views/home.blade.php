@@ -20,6 +20,10 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="assets/dist/style.css">
     <!-- Web App Manifest -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <link rel="manifest" href="assets/dist/manifest.json">
     <style>
         .clock {
@@ -46,24 +50,45 @@
 <div class="internet-connection-status" id="internetStatus"></div>
 
 {{--Modal--}}
-<div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true">
+<div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true" style="height:70%">
     <div class="modal-dialog modal-fullscreen-md-down">
         <div class="modal-content">
             <div class="modal-header">
                 <h6 class="modal-title" id="fullscreenModalLabel">Modal Heading</h6>
                 <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore excepturi magnam odio commodi. Quaerat, eaque. Neque eius, accusamus atque, asperiores iure dolor quibusdam eum pariatur libero eaque voluptate magnam? Ratione, dignissimos! Doloremque soluta totam libero recusandae qui nemo eius exercitationem quisquam. Voluptas.</p>
-                <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam quasi illum eveniet quidem dolores consectetur tempore architecto quo quos, repudiandae porro quisquam esse sit pariatur nemo blanditiis expedita minus qui?                        </p>
-            </div>
+                        <div class="modal-body">
+                            <iframe src="https://maps.google.com/maps?q=3.14,101.69&z=14&amp;output=embed" width="100%" height="100%" allowfullscreen></iframe>
+                        </div>
             <div class="modal-footer">
                 <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-sm btn-success" type="button">Save</button>
             </div>
         </div>
     </div>
 </div>
+{{--<div class="modal" id="fullscreenModal">--}}
+{{--    <div class="modal-dialog">--}}
+{{--        <div class="modal-content">--}}
+
+{{--            <!-- Modal Header -->--}}
+{{--            <div class="modal-header">--}}
+{{--                <h4 class="modal-title">Modal Heading</h4>--}}
+{{--                <button type="button" class="close" data-dismiss="modal">&times;</button>--}}
+{{--            </div>--}}
+
+{{--            <!-- Modal body -->--}}
+{{--            <div class="modal-body">--}}
+{{--                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>--}}
+{{--            </div>--}}
+
+{{--            <!-- Modal footer -->--}}
+{{--            <div class="modal-footer">--}}
+{{--                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>--}}
+{{--            </div>--}}
+
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 <!-- Dark mode switching -->
 <div class="dark-mode-switching">
@@ -188,8 +213,8 @@
                         <div class="tab-pane fade show active" id="bootstrap" role="tabpanel" aria-labelledby="bootstrap-tab">
                             <form action="{{route('submitAttendance')}}" method="POST">
                                 @csrf
-                                <input type="text" id="longitude" name="longitude">
-                                <input type="text" id="latitude" name="latitude">
+                                <input type="hidden" id="longitude" name="longitude">
+                                <input type="hidden" id="latitude" name="latitude">
                                 <input type="hidden" id="currentTime" name="currentTime" value="{{Carbon\Carbon::now()}}">
                             <h6>Clock in </h6>
 {{--                            <p class="mb-0"></p>--}}
@@ -224,7 +249,7 @@
                                                     <tr>
                                                         <th>{{$item->created_at}}</th>
                                                         <td>
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Trigger Modal</a>
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Show location</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach
