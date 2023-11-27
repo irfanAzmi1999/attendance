@@ -41,6 +41,11 @@
 
 </head>
 <body onload="getLocation()">
+@if(Session::has('message'))
+    <script>
+        alert('{{Session::get('message')}}');
+    </script>
+@endif
 <!-- Preloader -->
 <div id="preloader">
     <div class="spinner-grow text-primary" role="status"><span class="visually-hidden">Loading...</span></div>

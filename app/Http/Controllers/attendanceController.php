@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class attendanceController extends Controller
 {
@@ -21,6 +22,7 @@ class attendanceController extends Controller
         $attendance->dateRecord = $request->input('currentTime');
         $attendance->save();
 
+        Session::flash('message', 'Attendance Submitted');
         return redirect()->route('home');
     }
 
