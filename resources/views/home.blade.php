@@ -55,22 +55,7 @@
 <div class="internet-connection-status" id="internetStatus"></div>
 
 {{--Modal--}}
-<div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true" style="height:70%">
-    <div class="modal-dialog modal-fullscreen-md-down">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title" id="fullscreenModalLabel">Modal Heading</h6>
-                <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-                        <div class="modal-body">
-                            <iframe src="https://maps.google.com/maps?q=3.14,101.69&z=14&amp;output=embed" width="100%" height="100%" allowfullscreen></iframe>
-                        </div>
-            <div class="modal-footer">
-                <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 {{--<div class="modal" id="fullscreenModal">--}}
 {{--    <div class="modal-dialog">--}}
 {{--        <div class="modal-content">--}}
@@ -261,6 +246,22 @@
                                                         <th>{{$item->created_at}}</th>
                                                         <td>
                                                             <a href="#" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Show location</a>
+                                                            <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true" style="height:70%">
+                                                                <div class="modal-dialog modal-fullscreen-md-down">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h6 class="modal-title" id="fullscreenModalLabel">Location</h6>
+{{--                                                                            <button class="btn btn-close p-1 ms-auto" type="button" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <iframe src="https://maps.google.com/maps?q={{$item->latitude}},{{$item->longitude}}&z=14&amp;output=embed" width="100%" height="100%" allowfullscreen></iframe>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
