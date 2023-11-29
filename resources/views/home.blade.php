@@ -354,7 +354,7 @@
 </script>
 
 <script>
-
+    navigator.geolocation.getCurrentPosition(success[, error[, options]]);
     const longitude = document.getElementById("longitude");
     const latitude = document.getElementById("latitude");
 
