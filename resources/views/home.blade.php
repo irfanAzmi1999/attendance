@@ -226,7 +226,7 @@
                             </p>
 
                             </form>
-
+                            <p style="color: red">Reminder : If the button not shown. Please enable your location</p>
                         </div>
 
                         {{--        ---------------------------------                --}}
@@ -358,13 +358,13 @@
     const longitude = document.getElementById("longitude");
     const latitude = document.getElementById("latitude");
     let btn = document.getElementById('btnUp');
-
+    
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
             
         } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            alert('location not detected. Please reload');
         }
 
     function showPosition(position) {
