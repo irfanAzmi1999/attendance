@@ -40,7 +40,7 @@
     </style>
 
 </head>
-<body onload="getLocation()">
+<body onload="getLocation();">
 @if(Session::has('message'))
     <script>
         alert('{{Session::get('message')}}');
@@ -217,11 +217,11 @@
                             <br>
                             <p>
                                     @if($daystatus == 'empty')
-                                        <input type="submit" value="Clock In" class="btn btn-primary">
+                                        <input type="submit" value="Clock In" class="btn btn-primary" id="btnUp" style="display: none">
                                     @endif
 
                                     @if($daystatus == 'exist')
-                                        <input type="submit" value="Update" class="btn btn-primary">
+                                        <input type="submit" value="Update" class="btn btn-primary" id="btnUp" style="display: none">
                                     @endif
                             </p>
 
@@ -357,9 +357,12 @@
     //navigator.geolocation.getCurrentPosition(success[, error[, options]]);
     const longitude = document.getElementById("longitude");
     const latitude = document.getElementById("latitude");
+    let btn = document.getElementById('btnUp');
+
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
+            
         } else {
             x.innerHTML = "Geolocation is not supported by this browser.";
         }
@@ -367,6 +370,14 @@
     function showPosition(position) {
         latitude.value = position.coords.latitude;
         longitude.value = position.coords.longitude;
+        btn.style.display = "block";
+    }
+</script>
+
+<script>
+    function displayButton()
+    {
+        let btn = document.getElementById('btnUp');
     }
 </script>
 </body>
