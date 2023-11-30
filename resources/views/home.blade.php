@@ -203,8 +203,8 @@
                         <div class="tab-pane fade show active" id="bootstrap" role="tabpanel" aria-labelledby="bootstrap-tab">
                             <form action="{{route('submitAttendance')}}" method="POST">
                                 @csrf
-                                <input type="hidden" id="longitude" name="longitude">
-                                <input type="hidden" id="latitude" name="latitude">
+                                <input type="text" id="longitude" name="longitude">
+                                <input type="text" id="latitude" name="latitude">
                                 <input type="hidden" id="currentTime" name="currentTime" value="{{Carbon\Carbon::now()}}">
                             <h6>Clock in </h6>
 {{--                            <p class="mb-0"></p>--}}
@@ -354,7 +354,7 @@
 </script>
 
 <script>
-    navigator.geolocation.getCurrentPosition(success[, error[, options]]);
+    //navigator.geolocation.getCurrentPosition(success[, error[, options]]);
     const longitude = document.getElementById("longitude");
     const latitude = document.getElementById("latitude");
 
