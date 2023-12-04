@@ -49,22 +49,90 @@
         <!-- Register Form -->
         <div class="register-form mt-4">
             <h6 class="mb-3 text-center">Log in to continue to Mantasoft Attendance.</h6>
-            <form action="{{route('login')}}" method="POST">
+{{--            <form action="{{route('login')}}" method="POST">--}}
+{{--                @csrf--}}
+{{--                <div class="form-group">--}}
+{{--                    <input class="form-control" type="text" name="username" placeholder="Username">--}}
+{{--                    @error('username')--}}
+{{--                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                    @enderror--}}
+{{--                </div>--}}
+{{--                <div class="form-group position-relative">--}}
+{{--                    <input class="form-control" id="psw-input" name="password" type="password" placeholder="Enter Password">--}}
+{{--                    <div class="position-absolute" id="password-visibility"><i class="bi bi-eye"></i><i class="bi bi-eye-slash"></i></div>--}}
+
+{{--                    @error('password')--}}
+{{--                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                    @enderror--}}
+{{--                </div>--}}
+{{--                <button class="btn btn-primary w-100" type="submit">Sign In</button>--}}
+{{--            </form>--}}
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <div class="form-group">
-                    <input class="form-control" type="text" name="username" placeholder="Username">
+
+                <div class="row mb-3">
+                    <label for="username" class="col-md-4 col-form-label text-md-end">Username</label>
+
+                    <div class="col-md-6">
+                        <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+
+                        @error('username')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
                 </div>
-                <div class="form-group position-relative">
-                    <input class="form-control" id="psw-input" name="password" type="password" placeholder="Enter Password">
-                    <div class="position-absolute" id="password-visibility"><i class="bi bi-eye"></i><i class="bi bi-eye-slash"></i></div>
+
+                <div class="row mb-3">
+                    <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
                 </div>
-                <button class="btn btn-primary w-100" type="submit">Sign In</button>
+
+                <div class="row mb-3">
+                    <div class="col-md-6 offset-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                            <label class="form-check-label" for="remember">
+                                {{ __('Remember Me') }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-0">
+                    <div class="col-md-8 offset-md-4" style="text-align: center">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('Login') }}
+                        </button>
+
+{{--                        @if (Route::has('password.request'))--}}
+{{--                            <a class="btn btn-link" href="{{ route('password.request') }}">--}}
+{{--                                {{ __('Forgot Your Password?') }}--}}
+{{--                            </a>--}}
+{{--                        @endif--}}
+                    </div>
+                </div>
             </form>
         </div>
         <!-- Login Meta -->
-        <div class="login-meta-data text-center"><a class="stretched-link forgot-password d-block mt-3 mb-1" href="page-forget-password.html">Forgot Password?</a>
-            <p class="mb-0">Didn't have an account? <a class="stretched-link" href="page-register.html">Register Now</a></p>
-        </div>
+{{--        <div class="login-meta-data text-center"><a class="stretched-link forgot-password d-block mt-3 mb-1" href="page-forget-password.html">Forgot Password?</a>--}}
+{{--            <p class="mb-0">Didn't have an account? <a class="stretched-link" href="page-register.html">Register Now</a></p>--}}
+{{--        </div>--}}
     </div>
 </div>
 <!-- All JavaScript Files -->
