@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="assets/dist/css/rangeslider.css">
     <link rel="stylesheet" href="assets/dist/css/vanilla-dataTables.min.css">
     <link rel="stylesheet" href="assets/dist/css/apexcharts.css">
-    <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="assets/dist/style.css">
     <!-- Web App Manifest -->
@@ -55,6 +54,31 @@
 <!-- # This code for showing internet connection status -->
 <div class="internet-connection-status" id="internetStatus"></div>
 
+{{--Modal--}}
+
+{{--<div class="modal" id="fullscreenModal">--}}
+{{--    <div class="modal-dialog">--}}
+{{--        <div class="modal-content">--}}
+
+{{--            <!-- Modal Header -->--}}
+{{--            <div class="modal-header">--}}
+{{--                <h4 class="modal-title">Modal Heading</h4>--}}
+{{--                <button type="button" class="close" data-dismiss="modal">&times;</button>--}}
+{{--            </div>--}}
+
+{{--            <!-- Modal body -->--}}
+{{--            <div class="modal-body">--}}
+{{--                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d116862.54554679655!2d90.40409584970706!3d23.749000170125925!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1550040341458" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>--}}
+{{--            </div>--}}
+
+{{--            <!-- Modal footer -->--}}
+{{--            <div class="modal-footer">--}}
+{{--                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>--}}
+{{--            </div>--}}
+
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 <!-- Dark mode switching -->
 <div class="dark-mode-switching">
@@ -179,8 +203,8 @@
                         <div class="tab-pane fade show active" id="bootstrap" role="tabpanel" aria-labelledby="bootstrap-tab">
                             <form action="{{route('submitAttendance')}}" method="POST">
                                 @csrf
-                                <input type="text" id="longitude" name="longitude">
-                                <input type="text" id="latitude" name="latitude">
+                                <input type="hidden" id="longitude" name="longitude">
+                                <input type="hidden" id="latitude" name="latitude">
                                 <input type="hidden" id="currentTime" name="currentTime" value="{{Carbon\Carbon::now()}}">
                             <h6>Clock in </h6>
 {{--                            <p class="mb-0"></p>--}}
@@ -331,7 +355,7 @@
     showTime();
 </script>
 
-{{-- <script>
+<script>
 
     const longitude = document.getElementById("longitude");
     const latitude = document.getElementById("latitude");
@@ -346,14 +370,6 @@
         latitude.value = position.coords.latitude;
         longitude.value = position.coords.longitude;
     }
-</script> --}}
-
-<script>
-    const longitude = document.getElementById("longitude");
-    const latitude = document.getElementById("latitude");
-
-    latitude.value = geoplugin_latitude();
-    longitude.value = geoplugin_longitude()
 </script>
 </body>
 </html>
