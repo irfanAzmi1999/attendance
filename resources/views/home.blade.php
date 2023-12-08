@@ -245,8 +245,8 @@
                                                     <tr>
                                                         <th>{{$item->created_at}}</th>
                                                         <td>
-                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#fullscreenModal">Show location</a>
-                                                            <div class="modal fade" id="fullscreenModal" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true" style="height:70%">
+                                                            <a href="#" data-bs-toggle="modal" data-bs-target="#fullscreenModal{{ $items }}">Show location</a>
+                                                            <div class="modal fade" id="fullscreenModal{{ $items }}" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true" style="height:70%">
                                                                 <div class="modal-dialog modal-fullscreen-md-down">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
