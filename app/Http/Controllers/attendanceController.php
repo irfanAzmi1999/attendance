@@ -44,4 +44,66 @@ class attendanceController extends Controller
     }
 
 
+// YourController.php
+public function historyJan()
+{
+    // Your logic for January goes here
+}
+
+
+public function historyFeb()
+{
+    // Your logic for January goes here
+}
+
+public function historyMar()
+{
+    // Your logic for January goes here
+}
+
+public function historyApr()
+{
+    // Your logic for January goes here
+}
+
+public function historyMay()
+{
+    // Your logic for January goes here
+}
+
+public function historyJun()
+{
+    // Your logic for January goes here
+}
+
+public function historyJul()
+{
+    // Your logic for January goes here
+}
+
+public function historyAug()
+{
+    // Your logic for January goes here
+}
+
+public function historySep()
+{
+    // Your logic for January goes here
+}
+
+public function historyOct()
+{
+    // Your logic for January goes here
+}
+
+public function historyNov()
+{
+    // Your logic for January goes here
+}
+
+public function historyDec()
+{
+    // Your logic for January goes here
+}
+
 }
