@@ -19,14 +19,14 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-//            'name' => fake()->name(),
-//            'email' => fake()->unique()->safeEmail(),
-//            'email_verified_at' => now(),
-//            'password' => hash('md5','12345'), // password
-//            'remember_token' => Str::random(10),
-//            'username' => 'tester',
-//            'shortname' => 'tester',
-//            'department' => 'Software Development Team'
+        //    'name' => fake()->name(),
+        //    'email' => fake()->unique()->safeEmail(),
+        //    'email_verified_at' => now(),
+        //    'password' => hash('md5','12345'), // password
+        //    'remember_token' => Str::random(10),
+        //    'username' => 'tester',
+        //    'shortname' => 'tester',
+        //    'department' => 'Software Development Team',
 
             'name' => 'tester',
             'email' => 'tester@gmail.com',
@@ -35,7 +35,8 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'username' => 'tester',
             'shortname' => 'tester',
-            'department' => 'Software Development Team'
+            'department' => 'Software Development Team',
+
         ];
     }
 
