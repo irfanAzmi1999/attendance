@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\attendance;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         $cDate = Carbon::now()->format('Y-m-d');
-        $attendance = attendance::where('dateRecord','=',$cDate)->get();
+        $attendance=attendance::where([
+            ['dateRecord', '=', $cDate],
+            ['staff_id', '=', Auth::user()->id]
+        ])->get();
         $status = app('App\Http\Controllers\attendanceController')->checkCurrentDay();
         return view('home',['data'=>$attendance,'daystatus'=>$status]);
     }
