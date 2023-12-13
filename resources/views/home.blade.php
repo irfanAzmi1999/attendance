@@ -226,7 +226,8 @@
                             </p>
 
                             </form>
-                            <p style="color: red">Reminder : If the button not shown. Please enable your location</p>
+                            <p style="color: red">Reminder : If the button not shown. Please enable your location.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 If on Apple devices, please enable on settings>privacy & security and browser's settings.<p>
                         </div>
 
                         {{--        ---------------------------------                --}}
@@ -358,11 +359,11 @@
     const longitude = document.getElementById("longitude");
     const latitude = document.getElementById("latitude");
     let btn = document.getElementById('btnUp');
-    
+
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
-            
+
         } else {
             alert('location not detected. Please reload');
         }

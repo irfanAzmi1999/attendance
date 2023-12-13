@@ -99,104 +99,7 @@
     </div>
 
 
-{{-- <div class="container">
-    <div class="card">
-        <div class="card-body">
-            <div class="standard-tab">
-                <ul class="nav rounded-lg mb-2 p-2 shadow-sm" id="affanTabs1" role="tablist">
 
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab1" data-bs-toggle="tab" data-bs-target="#pwa-jan" type="button" role="tab" aria-controls="pwa-jan" aria-selected="false">JAN</button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab2" data-bs-toggle="tab" data-bs-target="#pwa-feb" type="button" role="tab" aria-controls="pwa-feb" aria-selected="false">FEB</button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab3" data-bs-toggle="tab" data-bs-target="#pwa-mar" type="button" role="tab" aria-controls="pwa-mar" aria-selected="false">MAR</button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab4" data-bs-toggle="tab" data-bs-target="#pwa-apr" type="button" role="tab" aria-controls="pwa-apr" aria-selected="false">APR</button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab5" data-bs-toggle="tab" data-bs-target="#pwa-may" type="button" role="tab" aria-controls="pwa-may" aria-selected="false">MAY</button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab6" data-bs-toggle="tab" data-bs-target="#pwa-jun" type="button" role="tab" aria-controls="pwa-jun" aria-selected="false">JUN</button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab7" data-bs-toggle="tab" data-bs-target="#pwa-jul" type="button" role="tab" aria-controls="pwa-jul" aria-selected="false">JUL</button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab8" data-bs-toggle="tab" data-bs-target="#pwa-aug" type="button" role="tab" aria-controls="pwa-aug" aria-selected="false">AUG</button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab9" data-bs-toggle="tab" data-bs-target="#pwa-sep" type="button" role="tab" aria-controls="pwa-sep" aria-selected="false">SEP</button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab10" data-bs-toggle="tab" data-bs-target="#pwa-oct" type="button" role="tab" aria-controls="pwa-oct" aria-selected="false">OCT</button>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab11" data-bs-toggle="tab" data-bs-target="#pwa-nov" type="button" role="tab" aria-controls="pwa-nov" aria-selected="true">NOV</button>
-                    </li>
-
-
-                    <li class="nav-item" role="presentation">
-                        <button class="btn" id="pwa-tab12" data-bs-toggle="tab" data-bs-target="#pwa-dec" type="button" role="tab" aria-controls="bootstrap" aria-selected="false">DEC</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-
-<!-- tab pane -->
-{{-- <div class="tab-pane fade" id="pwa-dec" role="tabpanel" aria-labelledby="pwa-tab12">
-    <h6>DecemberAttendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-nov" role="tabpanel" aria-labelledby="pwa-tab11">
-    <h6>November Attendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-oct" role="tabpanel" aria-labelledby="pwa-tab10">
-    <h6>October Attendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-sep" role="tabpanel" aria-labelledby="pwa-tab9">
-    <h6>September Attendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-aug" role="tabpanel" aria-labelledby="pwa-tab8">
-    <h6>August Attendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-jul" role="tabpanel" aria-labelledby="pwa-tab7">
-    <h6>July Attendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-jun" role="tabpanel" aria-labelledby="pwa-tab6">
-    <h6>June Attendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-may" role="tabpanel" aria-labelledby="pwa-tab5">
-    <h6>May Attendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-apr" role="tabpanel" aria-labelledby="pwa-tab4">
-    <h6>April Attendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-mar" role="tabpanel" aria-labelledby="pwa-tab3">
-    <h6>March Attendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-feb" role="tabpanel" aria-labelledby="pwa-tab2">
-    <h6>February Attendance History</h6>
-</div>
-<div class="tab-pane fade" id="pwa-jan" role="tabpanel" aria-labelledby="pwa-tab1">
-    <h6>January Attendance History</h6>
-</div> --}}
 
 <!-- Modals -->
 
@@ -207,11 +110,12 @@
 </style>
 
 <!-- jan -->
-<div class="modal fade modal-lower" id="modal-jan" tabindex="-1" role="dialog" aria-labelledby="modalLabel-jan" aria-hidden="true">
+<div class="modal fade" id="modal-jan" tabindex="-1" aria-labelledby="modal-jan-label" aria-hidden="true">
+    <!-- Add your modal content for January here -->
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-jan">January Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-jan">Jan Attendance History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -247,7 +151,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-mar">mar Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-mar">Mar Attendance History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -265,7 +169,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-apr">apr Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-apr">Apr Attendance History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -283,7 +187,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-may">may Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-may">May Attendance History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -301,7 +205,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-jun">jun Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-jun">Jun Attendance History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -319,7 +223,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-jul">jul Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-jul">Jul Attendance History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -337,7 +241,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-aug">aug Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-aug">Aug Attendance History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -355,7 +259,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-sep">sep Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-sep">Sep Attendance History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -373,7 +277,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-oct">oct Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-oct">Oct Attendance History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -391,9 +295,11 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-nov">nov Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-nov">Nov Attendance History</h5>
+
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
                 <!-- Add content specific to January here -->
             </div>
@@ -409,12 +315,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel-dec">dec Attendance History</h5>
+                <h5 class="modal-title" id="modalLabel-dec">Dec Attendance History</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!-- Add content specific to January here -->
+                <th>testtt</th>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
@@ -422,29 +329,100 @@
     </div>
 </div>
 
+<style>
+    #monthsBody {
+      display: none;
+    }
+  </style>
+
+<div class="container d-flex justify-content-center">
+    <label for="cars">Choose year</label> &nbsp;
+    <select id="years" name="years">
+        <option value="year2023">2023</option>
+        <option value="year2024">2024</option>
+    </select>
+</div>
 <!-- Button triggers for modals -->
 <div class="container d-flex justify-content-center">
     <div class="card">
-        <div class="card-body">
+        <div class="months-body" id="months2023">
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jan">January</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-feb">February</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-mar">March</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-apr">April</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-may">May</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jun">June</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jul">July</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-aug">August</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-sep">September</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-oct">October</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-nov">November</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-dec">December</button>
+        </div>
+    </div>
+</div>
 
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jan">January</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-feb">February</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-mar">March</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-apr">April</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-may">May</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jun">June</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jul">July</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-aug">Aug</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-sep">Sep</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-oct">Oct</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-nov">Nov</button>
-<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-dec">Dec</button>
+<div class="container d-flex justify-content-center">
+    <div class="card">
+        <div class="months-body" id="months2024">
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jan">January</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-feb">February</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-mar">March</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-apr">April</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-may">May</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jun">June</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jul">July</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-aug">August</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-sep">September</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-oct">October</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-nov">November</button>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-dec">December</button>
+        </div>
+    </div>
+</div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get the select element and months-body divs
+        var yearSelect = document.getElementById("years");
+        var monthsBody2023 = document.getElementById("months2023");
+        var monthsBody2024 = document.getElementById("months2024");
 
+        // Check if there is a saved selection in localStorage
+        var savedYear = localStorage.getItem("selectedYear");
 
+        // If there is a saved selection, set the selected year
+        if (savedYear) {
+            yearSelect.value = savedYear;
+        }
 
+        // Update the display based on the selected year
+        updateDisplay();
 
+        // Add an event listener to the select element
+        yearSelect.addEventListener("change", function() {
+            // Save the selected year to localStorage
+            localStorage.setItem("selectedYear", yearSelect.value);
 
+            // Update the display based on the selected year
+            updateDisplay();
+        });
+
+        // Function to update the display based on the selected year
+        function updateDisplay() {
+            // Check if the selected value is "year2024"
+            if (yearSelect.value === "year2024") {
+                // If selected year is "2024", hide the months-body for 2023 and show the one for 2024
+                monthsBody2023.style.display = "none";
+                monthsBody2024.style.display = "block";
+            } else {
+                // If selected year is not "2024", hide the months-body for 2024 and show the one for 2023
+                monthsBody2023.style.display = "block";
+                monthsBody2024.style.display = "none";
+            }
+        }
+    });
+</script>
 <!-- Footer Nav -->
 <div class="footer-nav-area" id="footerNav">
     <div class="container px-0">
