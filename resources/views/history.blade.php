@@ -355,7 +355,7 @@
                 <button type="button" class="btn gethistory"  data-month="{{ $key+1 }}">{{ $month }}</button>
             @endforeach
 
-            <table class="table table-striped table-ajax">
+            <table class="table table-ajax">
                 <tr>
                     <td>Date</td>
                     <td>Status</td>
