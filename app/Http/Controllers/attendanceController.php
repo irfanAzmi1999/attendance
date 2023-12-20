@@ -69,7 +69,7 @@ class attendanceController extends Controller
         for($i=1; $i < $selectedData->daysInMonth + 1; ++$i) {
 //            $dates[] = \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y');
             $dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y')], 'status', 'hadir');
-            $attendance=app('App\Http\Controllers\attendanceController')->getAttendancehistory($dates[$i-1]);
+            $attendance=self::getAttendancehistory($dates[$i-1]);
 
 //            dd($attendance[0]->id);
             if (isset($attendance[$i-1]))
@@ -77,7 +77,6 @@ class attendanceController extends Controller
 //                dd($dates[$i-1]['tarikh']);
                 if($attendance[$i-1]->created_at->format('F-d-Y')==$dates[$i-1]['tarikh'])
                 {
-
                     $filter[$i-1] = Arr::add(['tarikh'=>$dates[$i-1]['tarikh']],'status','hadir');
                 }
                 else{
