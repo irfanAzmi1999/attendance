@@ -28,45 +28,45 @@ class HomeController extends Controller
     public function index()
     {
 
-//        $cDate = Carbon::now()->format('Y-m-d');
-//        $attendance=attendance::where([
-//            ['dateRecord', '=', $cDate],
-//            ['staff_id', '=', Auth::user()->id]
-//        ])->get();
-//        $status = app('App\Http\Controllers\attendanceController')->checkCurrentDay();
-//        return view('home',['data'=>$attendance,'daystatus'=>$status]);
+        $cDate = Carbon::now()->format('Y-m-d');
+        $attendance=attendance::where([
+            ['dateRecord', '=', $cDate],
+            ['staff_id', '=', Auth::user()->id]
+        ])->get();
+        $status = app('App\Http\Controllers\attendanceController')->checkCurrentDay();
+        return view('home',['data'=>$attendance,'daystatus'=>$status]);
 
-        $selectedMonth = "12";
-        $selectedData = Carbon::now()->month("12");
-        $dates = [];
-        $attendance = new attendance;
-        $filter = [];
-
-        for($i=1; $i < $selectedData->daysInMonth + 1; ++$i) {
-//            $dates[] = \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y');
-            $dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y')], 'status', 'hadir');
-            $attendance=app('App\Http\Controllers\attendanceController')->getAttendancehistory($dates[$i-1]);
-
-//            dd($attendance[0]->id);
-            if (isset($attendance[$i-1]))
-            {
-//                dd($dates[$i-1]['tarikh']);
-                if($attendance[$i-1]->created_at->format('F-d-Y')==$dates[$i-1]['tarikh'])
-                {
-
-                    $filter[$i-1] = Arr::add(['tarikh'=>$dates[$i-1]['tarikh']],'status','hadir');
-                }
-
-            }
-            else{
-                $filter[$i-1]['tarikh'] = $dates[$i-1]['tarikh'];
-            }
-
-
-        }
-
-
-        dd($filter);
+//        $selectedMonth = "12";
+//        $selectedData = Carbon::now()->month("12");
+//        $dates = [];
+//        $attendance = new attendance;
+//        $filter = [];
+//
+//        for($i=1; $i < $selectedData->daysInMonth + 1; ++$i) {
+////            $dates[] = \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y');
+//            $dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y')], 'status', 'hadir');
+//            $attendance=app('App\Http\Controllers\attendanceController')->getAttendancehistory($dates[$i-1]);
+//
+////            dd($attendance[0]->id);
+//            if (isset($attendance[$i-1]))
+//            {
+////                dd($dates[$i-1]['tarikh']);
+//                if($attendance[$i-1]->created_at->format('F-d-Y')==$dates[$i-1]['tarikh'])
+//                {
+//
+//                    $filter[$i-1] = Arr::add(['tarikh'=>$dates[$i-1]['tarikh']],'status','hadir');
+//                }
+//
+//            }
+//            else{
+//                $filter[$i-1]['tarikh'] = $dates[$i-1]['tarikh'];
+//            }
+//
+//
+//        }
+//
+//
+//        dd($filter);
     }
 
     public function test($bulan)
