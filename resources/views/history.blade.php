@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    {{-- <meta charset="utf-8"> --}}
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Affan - PWA Mobile HTML Template">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -343,85 +344,71 @@
     </select>
 </div>
 <!-- Button triggers for modals -->
+
+
 <div class="container d-flex justify-content-center">
     <div class="card">
-        <div class="months-body" id="months2023">
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jan">January</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-feb">February</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-mar">March</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-apr">April</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-may">May</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jun">June</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jul">July</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-aug">August</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-sep">September</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-oct">October</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-nov">November</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-dec">December</button>
+        <div class="months-body">
+            {{-- <button type="button" class="btn gethistory"  data-month="{{ $key+1 }}">{{ $month }}</button> --}}
+
+            @foreach ($data as $key => $month )
+                <button type="button" class="btn gethistory"  data-month="{{ $key+1 }}">{{ $month }}</button>
+            @endforeach
+
+            <table class="table table-striped table-ajax">
+                <tr>
+                    <td>Date</td>
+                    <td>Status</td>
+                </tr>
+            </table>
+
         </div>
     </div>
 </div>
 
-<div class="container d-flex justify-content-center">
-    <div class="card">
-        <div class="months-body" id="months2024">
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jan">January</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-feb">February</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-mar">March</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-apr">April</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-may">May</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jun">June</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-jul">July</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-aug">August</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-sep">September</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-oct">October</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-nov">November</button>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-dec">December</button>
-        </div>
-    </div>
-</div>
+{{-- <input type="hidden" id="tokenform" value="{{ csrf_token() }}"> --}}
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Get the select element and months-body divs
-        var yearSelect = document.getElementById("years");
-        var monthsBody2023 = document.getElementById("months2023");
-        var monthsBody2024 = document.getElementById("months2024");
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     // Get the select element and months-body divs
+    //     var yearSelect = document.getElementById("years");
+    //     var monthsBody2023 = document.getElementById("months2023");
+    //     var monthsBody2024 = document.getElementById("months2024");
 
-        // Check if there is a saved selection in localStorage
-        var savedYear = localStorage.getItem("selectedYear");
+    //     // Check if there is a saved selection in localStorage
+    //     var savedYear = localStorage.getItem("selectedYear");
 
-        // If there is a saved selection, set the selected year
-        if (savedYear) {
-            yearSelect.value = savedYear;
-        }
+    //     // If there is a saved selection, set the selected year
+    //     if (savedYear) {
+    //         yearSelect.value = savedYear;
+    //     }
 
-        // Update the display based on the selected year
-        updateDisplay();
+    //     // Update the display based on the selected year
+    //     updateDisplay();
 
-        // Add an event listener to the select element
-        yearSelect.addEventListener("change", function() {
-            // Save the selected year to localStorage
-            localStorage.setItem("selectedYear", yearSelect.value);
+    //     // Add an event listener to the select element
+    //     yearSelect.addEventListener("change", function() {
+    //         // Save the selected year to localStorage
+    //         localStorage.setItem("selectedYear", yearSelect.value);
 
-            // Update the display based on the selected year
-            updateDisplay();
-        });
+    //         // Update the display based on the selected year
+    //         updateDisplay();
+    //     });
 
-        // Function to update the display based on the selected year
-        function updateDisplay() {
-            // Check if the selected value is "year2024"
-            if (yearSelect.value === "year2024") {
-                // If selected year is "2024", hide the months-body for 2023 and show the one for 2024
-                monthsBody2023.style.display = "none";
-                monthsBody2024.style.display = "block";
-            } else {
-                // If selected year is not "2024", hide the months-body for 2024 and show the one for 2023
-                monthsBody2023.style.display = "block";
-                monthsBody2024.style.display = "none";
-            }
-        }
-    });
+    //     // Function to update the display based on the selected year
+    //     function updateDisplay() {
+    //         // Check if the selected value is "year2024"
+    //         if (yearSelect.value === "year2024") {
+    //             // If selected year is "2024", hide the months-body for 2023 and show the one for 2024
+    //             monthsBody2023.style.display = "none";
+    //             monthsBody2024.style.display = "block";
+    //         } else {
+    //             // If selected year is not "2024", hide the months-body for 2024 and show the one for 2023
+    //             monthsBody2023.style.display = "block";
+    //             monthsBody2024.style.display = "none";
+    //         }
+    //     }
+    // });
 </script>
 <!-- Footer Nav -->
 <div class="footer-nav-area" id="footerNav">
@@ -458,6 +445,42 @@
 <!-- Bootstrap JavaScript with Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+<script>
+
+    $(document).on('click','.gethistory',function(){
+        let a = $(this);
+        let selectedMonth = a.attr('data-month');
+
+        // let tokenvar = document.getElementById('tokenform').value;
+
+        $.ajax({
+            url : "/getDateMonth",
+            data: {
+             "_token": "{{ csrf_token() }}",
+             "selectedMonth": selectedMonth
+            },
+            type : 'POST',
+            dataType : 'json',
+            success : function(data){
+
+                $(".table-ajax .data-row").remove();
+                $.each(data.data, function(index, value){
+                    // console.log(value.tarikh);
+                    // console.log(value.status);
+                    var $tr = $('<tr>').append(
+                        $('<td class="data-row">').text(value.tarikh),
+                        $('<td class="data-row">').text(value.status),
+                    ).appendTo('.table-ajax'); //.appendTo('#records_table');
+               });
+
+                // for (var i=0; i<data.status.length; i++) {
+                //     alert(data.status[i]);
+                // }
+            }
+    });
+    })
+</script>
 
 
 
