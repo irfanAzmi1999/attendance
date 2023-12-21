@@ -119,13 +119,20 @@ class attendanceController extends Controller
                 {
                     if($oldTarikh!=null)
                     {
-                        if($item->created_at > $oldTarikh)
+                        if (in_array($item->dateRecord, $filter))
                         {
-                            $filter[$index] = $item->created_at->format('F-d-Y');
+                            break;
                         }
                         else{
-                            $filter[$index] = $oldTarikh->format('F-d-Y');
+                            if($item->created_at > $oldTarikh)
+                            {
+                                $filter[$index] = $item->created_at->format('F-d-Y');
+                            }
+                            else{
+                                $filter[$index] = $oldTarikh->format('F-d-Y');
+                            }
                         }
+
                         $index++;
                     }
                     else{
