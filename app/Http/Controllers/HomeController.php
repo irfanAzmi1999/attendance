@@ -41,15 +41,36 @@ class HomeController extends Controller
         $dates = [];
         $attendance = new attendance;
         $filter = [];
+        $attendance=app('App\Http\Controllers\attendanceController')->getAttendancehistory($selectedMonth,$selectedData->year);
 
         for($i=1; $i < $selectedData->daysInMonth + 1; ++$i) {
 //            $dates[] = \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y');
-            $dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y')], 'status', 'hadir');
+            $dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y')], 'status', '');
+
+//            foreach($attendance as $datadate)
+//            {
+//                if($datadate == $dates[$i-1])
+//                {
+//
+//                }
+//            }
+        }
+        //STEP NEXT: FOR EACH KAN DATES DAN ASSIGN KAN STATUS IKUT ATTENDANCES
+
+        foreach($attendance as $key=>$item)
+        {
+            foreach ($dates as $k=>$item2)
+            {
+
+                if($item2['tarikh']==$item)
+                {
+                    $dates[$k]['status']='hadir';
+                }
+            }
+
         }
 
-        $attendance=app('App\Http\Controllers\attendanceController')->getAttendancehistory($selectedMonth,$selectedData->year);
-
-        dd($attendance);
+        dd($dates);
 
     }
 

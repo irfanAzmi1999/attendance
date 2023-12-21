@@ -66,14 +66,31 @@ class attendanceController extends Controller
         $dates = [];
         $attendance = new attendance;
         $filter = [];
+        $attendance=self::getAttendancehistory($selectedMonth,$selectedData->year);
 
         for($i=1; $i < $selectedData->daysInMonth + 1; ++$i) {
 //            $dates[] = \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y');
             $dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y')], 'status', 'hadir');
-            $attendance=self::getAttendancehistory($dates[$i-1]);
+
+//            foreach($attendance as $datadate)
+//            {
+//                if($datadate == $dates[$i-1])
+//                {
+//
+//                }
+//            }
+        }
+                //STEP NEXT: FOR EACH KAN DATES DAN ASSIGN KAN STATUS IKUT ATTENDANCES
+
+        foreach ($dates as $key=>$data) {
+            if($data->tarikh == $attendance)
+            {
+                $data->status="hadir";
+            }
         }
 
-        return response()->json(array('data'=> $attendance), 200);
+
+        return response()->json(array('data'=> $dates), 200);
 //        return response()->json(['data'=> $filter, 200]);
 
     }
@@ -104,10 +121,10 @@ class attendanceController extends Controller
                     {
                         if($item->created_at > $oldTarikh)
                         {
-                            $filter[$index] = $item->created_at;
+                            $filter[$index] = $item->created_at->format('F-d-Y');
                         }
                         else{
-                            $filter[$index] = $oldTarikh;
+                            $filter[$index] = $oldTarikh->format('F-d-Y');
                         }
                         $index++;
                     }
