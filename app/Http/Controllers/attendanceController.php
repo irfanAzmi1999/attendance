@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Response;
 
@@ -70,41 +71,56 @@ class attendanceController extends Controller
 //            $dates[] = \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y');
             $dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y')], 'status', 'hadir');
             $attendance=self::getAttendancehistory($dates[$i-1]);
-
-//            dd($attendance[0]->id);
-            if (isset($attendance[$i-1]))
-            {
-//                dd($dates[$i-1]['tarikh']);
-                if($attendance[$i-1]->created_at->format('F-d-Y')==$dates[$i-1]['tarikh'])
-                {
-                    $filter[$i-1] = Arr::add(['tarikh'=>$dates[$i-1]['tarikh']],'status','hadir');
-                }
-                else{
-                    $filter[$i-1]['tarikh'] = $dates[$i-1]['tarikh'];
-                    $filter[$i-1]['status'] = 'tak hadir';
-                }
-            }
-            else{
-                $filter[$i-1]['tarikh'] = $dates[$i-1]['tarikh'];
-                $filter[$i-1]['status'] = 'tak hadir';
-            }
-
-
         }
 
-        return response()->json(array('data'=> $filter), 200);
+        return response()->json(array('data'=> $attendance), 200);
 //        return response()->json(['data'=> $filter, 200]);
 
     }
 
-    public function getAttendancehistory($dates)
+    public function getAttendancehistory($month,$year)
     {
 //        dd($dates['tarikh']);
-        $parsedate = new carbon($dates['tarikh']);
+//        $parsedate = new carbon($dates['tarikh']);
         $userid = Auth::user()->id;
-        $attendance = attendance::where('staff_id','=',$userid)->whereYear('created_at','=',$parsedate->year)->whereMonth('created_at','=',$parsedate->month)->get();
+        $attendance = attendance::where('staff_id','=',$userid)->whereYear('created_at','=',$year)->whereMonth('created_at','=',$month)->get();
+        $oldTarikh = null;
+        $filter = [];
+        $index = 0;
 
-        return $attendance;
+        $tarikh = DB::table('attendances')
+            ->select('dateRecord')
+            ->where('staff_id',$userid)
+            ->distinct()
+            ->get();
+
+        foreach($attendance as $key=>$item)
+        {
+            foreach($tarikh as $data)
+            {
+                if($item->dateRecord == $data->dateRecord)
+                {
+                    if($oldTarikh!=null)
+                    {
+                        if($item->created_at > $oldTarikh)
+                        {
+                            $filter[$index] = $item->created_at;
+                        }
+                        else{
+                            $filter[$index] = $oldTarikh;
+                        }
+                        $index++;
+                    }
+                    else{
+                        $oldTarikh = $item->created_at;
+                    }
+
+                }
+            }
+        }
+
+        return $filter;
 
     }
+
 }

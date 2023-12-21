@@ -461,18 +461,19 @@
              "selectedMonth": selectedMonth
             },
             type : 'POST',
-            dataType : 'json',
+            dataType : 'html',
             success : function(data){
 
-                $(".table-ajax .data-row").remove();
-                $.each(data.data, function(index, value){
-                    // console.log(value.tarikh);
-                    // console.log(value.status);
-                    var $tr = $('<tr>').append(
-                        $('<td class="data-row">').text(value.tarikh),
-                        $('<td class="data-row">').text(value.status),
-                    ).appendTo('.table-ajax'); //.appendTo('#records_table');
-               });
+               //  $(".table-ajax .data-row").remove();
+               //  $.each(data.data, function(index, value){
+               //      // console.log(value.tarikh);
+               //      // console.log(value.status);
+               //      var $tr = $('<tr>').append(
+               //          $('<td class="data-row">').text(value.id),
+               //          $('<td class="data-row">').text(value.created_at),
+               //      ).appendTo('.table-ajax'); //.appendTo('#records_table');
+               // });
+                alert(data);
 
                 // for (var i=0; i<data.status.length; i++) {
                 //     alert(data.status[i]);
