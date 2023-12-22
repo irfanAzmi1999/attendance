@@ -337,11 +337,11 @@
   </style>
 
 <div class="container d-flex justify-content-center">
-    <label for="cars">Choose year</label> &nbsp;
-    <select id="years" name="years">
-        <option value="year2023">2023</option>
-        <option value="year2024">2024</option>
-    </select>
+    <label for="cars">Current year </label>&nbsp <b>{{\Carbon\Carbon::now()->year}}</b>
+{{--    <select id="years" name="years">--}}
+{{--        <option value="year2023">2023</option>--}}
+{{--        <option value="year2024">2024</option>--}}
+{{--    </select>--}}
 </div>
 <!-- Button triggers for modals -->
 

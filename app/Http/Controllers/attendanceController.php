@@ -125,9 +125,9 @@ class attendanceController extends Controller
                 ->where('dateRecord','=',$item->dateRecord)
                 ->orderBy('created_at', 'desc')
                 ->first();
-            $clockout = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$tt->created_at)->format('H:i:s');
+            $clockout = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$tt->created_at)->format('g:i A');
 
-            $filter[$key] = array('tarikh'=>$t->dateRecord,'clock_in'=>$t->created_at->format('H:i:s'),'clock_out'=>$clockout);
+            $filter[$key] = array('tarikh'=>$t->dateRecord,'clock_in'=>$t->created_at->format('g:i A'),'clock_out'=>$clockout);
 
         }
 
