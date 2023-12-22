@@ -466,7 +466,7 @@
             dataType : 'json',
             success : function(data){
 
-                // $(".table-ajax .data-row").remove();
+                $(".table-ajax .data-row").remove();
                 $.each(data.data, function(index, value){
                     // console.log(value.tarikh);
                     // console.log(value.status);
