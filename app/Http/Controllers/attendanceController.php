@@ -66,12 +66,12 @@ class attendanceController extends Controller
         $dates = [];
         $attendance = new attendance;
         $filter = [];
-        $attendance=self::getAttendancehistory($selectedMonth,$selectedData->year);
+        $attendance=app('App\Http\Controllers\attendanceController')->getAttendancehistory($selectedMonth,$selectedData->year);
 
         for($i=1; $i < $selectedData->daysInMonth + 1; ++$i) {
 //            $dates[] = \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y');
-            $dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y')], 'status', 'hadir');
-
+            //$dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('Y-m-d')], 'status', '');
+            $dates[] = array('tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('Y-m-d'),'status'=>'','clock_in'=>'','clock_out'=>'');
 //            foreach($attendance as $datadate)
 //            {
 //                if($datadate == $dates[$i-1])
@@ -80,16 +80,22 @@ class attendanceController extends Controller
 //                }
 //            }
         }
-                //STEP NEXT: FOR EACH KAN DATES DAN ASSIGN KAN STATUS IKUT ATTENDANCES
-
-        foreach ($dates as $key=>$data) {
-            if($data->tarikh == $attendance)
+        //STEP NEXT: FOR EACH KAN DATES DAN ASSIGN KAN STATUS IKUT ATTENDANCES
+//        dd($attendance);
+        foreach($attendance as $key=>$item)
+        {
+            foreach ($dates as $k=>$item2)
             {
-                $data->status="hadir";
+
+                if($item2['tarikh']==$item['tarikh'])
+                {
+                    $dates[$k]['status']='hadir';
+                    $dates[$k]['clock_in']=$item['clock_in'];
+                    $dates[$k]['clock_out']=$item['clock_out'];
+                }
             }
+
         }
-
-
         return response()->json(array('data'=> $dates), 200);
 //        return response()->json(['data'=> $filter, 200]);
 

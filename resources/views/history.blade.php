@@ -359,6 +359,8 @@
                 <tr>
                     <td>Date</td>
                     <td>Status</td>
+                    <td>Clock In</td>
+                    <td>Clock Out</td>
                 </tr>
             </table>
 
@@ -461,19 +463,21 @@
              "selectedMonth": selectedMonth
             },
             type : 'POST',
-            dataType : 'html',
+            dataType : 'json',
             success : function(data){
 
-               //  $(".table-ajax .data-row").remove();
-               //  $.each(data.data, function(index, value){
-               //      // console.log(value.tarikh);
-               //      // console.log(value.status);
-               //      var $tr = $('<tr>').append(
-               //          $('<td class="data-row">').text(value.id),
-               //          $('<td class="data-row">').text(value.created_at),
-               //      ).appendTo('.table-ajax'); //.appendTo('#records_table');
-               // });
-                alert(data);
+                // $(".table-ajax .data-row").remove();
+                $.each(data.data, function(index, value){
+                    // console.log(value.tarikh);
+                    // console.log(value.status);
+                    var $tr = $('<tr>').append(
+                        $('<td class="data-row">').text(value.tarikh),
+                        $('<td class="data-row">').text(value.status),
+                        $('<td class="data-row">').text(value.clock_in),
+                        $('<td class="data-row">').text(value.clock_out),
+                    ).appendTo('.table-ajax'); //.appendTo('#records_table');
+               });
+                // alert(data);
 
                 // for (var i=0; i<data.status.length; i++) {
                 //     alert(data.status[i]);

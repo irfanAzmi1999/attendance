@@ -28,51 +28,51 @@ class HomeController extends Controller
     public function index()
     {
 
-//        $cDate = Carbon::now()->format('Y-m-d');
-//        $attendance=attendance::where([
-//            ['dateRecord', '=', $cDate],
-//            ['staff_id', '=', Auth::user()->id]
-//        ])->get();
-//        $status = app('App\Http\Controllers\attendanceController')->checkCurrentDay();
-//        return view('home',['data'=>$attendance,'daystatus'=>$status]);
+        $cDate = Carbon::now()->format('Y-m-d');
+        $attendance=attendance::where([
+            ['dateRecord', '=', $cDate],
+            ['staff_id', '=', Auth::user()->id]
+        ])->get();
+        $status = app('App\Http\Controllers\attendanceController')->checkCurrentDay();
+        return view('home',['data'=>$attendance,'daystatus'=>$status]);
 
-        $selectedMonth = "12";
-        $selectedData = Carbon::now()->month($selectedMonth);
-        $dates = [];
-        $attendance = new attendance;
-        $filter = [];
-        $attendance=app('App\Http\Controllers\attendanceController')->getAttendancehistory($selectedMonth,$selectedData->year);
-
-        for($i=1; $i < $selectedData->daysInMonth + 1; ++$i) {
-//            $dates[] = \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y');
-            //$dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('Y-m-d')], 'status', '');
-            $dates[] = array('tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('Y-m-d'),'status'=>'','clock_in'=>'','clock_out'=>'');
-//            foreach($attendance as $datadate)
-//            {
-//                if($datadate == $dates[$i-1])
-//                {
+//        $selectedMonth = "12";
+//        $selectedData = Carbon::now()->month($selectedMonth);
+//        $dates = [];
+//        $attendance = new attendance;
+//        $filter = [];
+//        $attendance=app('App\Http\Controllers\attendanceController')->getAttendancehistory($selectedMonth,$selectedData->year);
 //
+//        for($i=1; $i < $selectedData->daysInMonth + 1; ++$i) {
+////            $dates[] = \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('F-d-Y');
+//            //$dates[] = Arr::add(['tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('Y-m-d')], 'status', '');
+//            $dates[] = array('tarikh' => \Carbon\Carbon::createFromDate($selectedData->year, $selectedData->month, $i)->format('Y-m-d'),'status'=>'','clock_in'=>'','clock_out'=>'');
+////            foreach($attendance as $datadate)
+////            {
+////                if($datadate == $dates[$i-1])
+////                {
+////
+////                }
+////            }
+//        }
+//        //STEP NEXT: FOR EACH KAN DATES DAN ASSIGN KAN STATUS IKUT ATTENDANCES
+////        dd($attendance);
+//        foreach($attendance as $key=>$item)
+//        {
+//            foreach ($dates as $k=>$item2)
+//            {
+//
+//                if($item2['tarikh']==$item['tarikh'])
+//                {
+//                    $dates[$k]['status']='hadir';
+//                    $dates[$k]['clock_in']=$item['clock_in'];
+//                    $dates[$k]['clock_out']=$item['clock_out'];
 //                }
 //            }
-        }
-        //STEP NEXT: FOR EACH KAN DATES DAN ASSIGN KAN STATUS IKUT ATTENDANCES
-//        dd($attendance);
-        foreach($attendance as $key=>$item)
-        {
-            foreach ($dates as $k=>$item2)
-            {
-
-                if($item2['tarikh']==$item['tarikh'])
-                {
-                    $dates[$k]['status']='hadir';
-                    $dates[$k]['clock_in']=$item['clock_in'];
-                    $dates[$k]['clock_out']=$item['clock_out'];
-                }
-            }
-
-        }
-
-        dd($dates);
+//
+//        }
+//
+//        dd($dates);
 
     }
 
