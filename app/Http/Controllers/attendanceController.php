@@ -101,6 +101,7 @@ class attendanceController extends Controller
 //        $parsedate = new carbon($dates['tarikh']);
         $userid = Auth::user()->id;
         $attendance = attendance::where('staff_id','=',$userid)->whereYear('created_at','=',$year)->whereMonth('created_at','=',$month)->get();
+        $test=[];
         $oldTarikh = null;
         $filter = [];
         $index = 0;
@@ -111,37 +112,19 @@ class attendanceController extends Controller
             ->distinct()
             ->get();
 
-        foreach($attendance as $key=>$item)
+        foreach($tarikh as $key=>$item)
         {
-            foreach($tarikh as $data)
-            {
-                if($item->dateRecord == $data->dateRecord)
-                {
-                    if($oldTarikh!=null)
-                    {
-                        if (in_array($item->dateRecord, $filter))
-                        {
-                            break;
-                        }
-                        else{
-                            if($item->created_at > $oldTarikh)
-                            {
-                                $filter[$index] = $item->created_at->format('F-d-Y');
-                            }
-                            else{
-                                $filter[$index] = $oldTarikh->format('F-d-Y');
-                            }
-                        }
+            $t = attendance::where('staff_id','=',$userid)->where('dateRecord','=',$item->dateRecord)->first();
+            $tt = DB::table('attendances')->where('staff_id','=',$userid)
+                ->where('dateRecord','=',$item->dateRecord)
+                ->orderBy('created_at', 'desc')
+                ->first();
+            $clockout = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$tt->created_at)->format('H:i:s');
 
-                        $index++;
-                    }
-                    else{
-                        $oldTarikh = $item->created_at;
-                    }
+            $filter[$key] = array('tarikh'=>$t->dateRecord,'clock_in'=>$t->created_at->format('H:i:s'),'clock_out'=>$clockout);
 
-                }
-            }
         }
+
 
         return $filter;
 
